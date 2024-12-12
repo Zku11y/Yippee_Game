@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://txos3t420mm5"
-path="res://.godot/imported/minecraft_grass_block_texture_by_psddude_df8r26t-pre.jpg-9d86bdd83efa310eee3af9023bb408a0.ctex"
+uid="uid://c7asckn0lvcca"
+path="res://.godot/imported/LPC_Skin_Stealer.png-754640da3d07ba6231faed28e0f27dfe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minecraft_grass_block_texture_by_psddude_df8r26t-pre.jpg"
-dest_files=["res://.godot/imported/minecraft_grass_block_texture_by_psddude_df8r26t-pre.jpg-9d86bdd83efa310eee3af9023bb408a0.ctex"]
+source_file="res://PNGs/Backrooms Tiles/LPC_Skin_Stealer.png"
+dest_files=["res://.godot/imported/LPC_Skin_Stealer.png-754640da3d07ba6231faed28e0f27dfe.ctex"]
 
 [params]
 

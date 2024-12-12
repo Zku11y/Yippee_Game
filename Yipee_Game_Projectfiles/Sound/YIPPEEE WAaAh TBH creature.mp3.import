@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b50e4mc17amp3"
+path="res://.godot/imported/YIPPEEE WAaAh TBH creature.mp3-d5a47411eeb756fcc631470270b2f112.mp3str"
+
+[deps]
+
+source_file="res://Sound/YIPPEEE WAaAh TBH creature.mp3"
+dest_files=["res://.godot/imported/YIPPEEE WAaAh TBH creature.mp3-d5a47411eeb756fcc631470270b2f112.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
