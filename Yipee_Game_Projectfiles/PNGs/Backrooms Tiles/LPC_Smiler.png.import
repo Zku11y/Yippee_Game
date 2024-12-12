@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b42m8trlrt6x"
-path="res://.godot/imported/png-clipart-chocolate-truffle-chocolate-cake-birthday-cake-sachertorte-cake-cream-baked-goods.png-7d7df6abff7e45b1dd94303e14bf5add.ctex"
+uid="uid://ch5cu7m2dkwne"
+path="res://.godot/imported/LPC_Smiler.png-0646bce6b4a55e3d8f2e8b8c92a8b09d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://png-clipart-chocolate-truffle-chocolate-cake-birthday-cake-sachertorte-cake-cream-baked-goods.png"
-dest_files=["res://.godot/imported/png-clipart-chocolate-truffle-chocolate-cake-birthday-cake-sachertorte-cake-cream-baked-goods.png-7d7df6abff7e45b1dd94303e14bf5add.ctex"]
+source_file="res://PNGs/Backrooms Tiles/LPC_Smiler.png"
+dest_files=["res://.godot/imported/LPC_Smiler.png-0646bce6b4a55e3d8f2e8b8c92a8b09d.ctex"]
 
 [params]
 

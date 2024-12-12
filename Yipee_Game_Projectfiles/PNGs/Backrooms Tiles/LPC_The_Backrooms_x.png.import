@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdf4233bjummr"
-path="res://.godot/imported/LPC_The_Backrooms.png-97760c15995da7639230f550cd2f4681.ctex"
+uid="uid://bj6ye3b2iad6p"
+path="res://.godot/imported/LPC_The_Backrooms_x.png-a8623a99ee5c8caf566012afdab74b86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNGs/LPC_The_Backrooms.png"
-dest_files=["res://.godot/imported/LPC_The_Backrooms.png-97760c15995da7639230f550cd2f4681.ctex"]
+source_file="res://PNGs/Backrooms Tiles/LPC_The_Backrooms_x.png"
+dest_files=["res://.godot/imported/LPC_The_Backrooms_x.png-a8623a99ee5c8caf566012afdab74b86.ctex"]
 
 [params]
 

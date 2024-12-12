@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 var SPEED = 450.0
 const JUMP_VELOCITY = -400.0
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 func _physics_process(delta: float) -> void:
@@ -18,8 +19,13 @@ func _physics_process(delta: float) -> void:
 		SPEED = 900
 	elif Input.is_action_just_released("sprint"):
 		SPEED = 450
+	velocity = velocity.normalized()
 	if direction1:
 		velocity.x = direction1 * SPEED
+		if velocity.x > 0:
+			sprite_2d.flip_h = true
+		elif velocity.x < 0:
+			sprite_2d.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if direction2:
