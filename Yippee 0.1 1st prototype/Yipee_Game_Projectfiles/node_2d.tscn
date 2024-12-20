@@ -1,0 +1,433 @@
+[gd_scene load_steps=27 format=3 uid="uid://bm28ulcb0ob3j"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_kofsy"]
+[ext_resource type="FontFile" uid="uid://dn2qk2e7xnbi0" path="res://Minecraftia-Regular.ttf" id="2_cayct"]
+[ext_resource type="Texture2D" uid="uid://bsj75545ffo8b" path="res://anim.png" id="2_ouxsa"]
+[ext_resource type="Script" path="res://countdown1.gd" id="3_4gwy2"]
+[ext_resource type="AudioStream" uid="uid://bolbqv04lmfut" path="res://WAAAAAAA.mp3" id="4_6ging"]
+[ext_resource type="Script" path="res://rich_text_label.gd" id="5_hiqjd"]
+[ext_resource type="Texture2D" uid="uid://lexi4hrdftuq" path="res://tileset_backrooms.png" id="5_lqorm"]
+[ext_resource type="AudioStream" uid="uid://dnxys0nwma48s" path="res://yippeeeeeee.mp3" id="5_unnwi"]
+[ext_resource type="PackedScene" uid="uid://c4esu3xl1t378" path="res://orbs.tscn" id="6_vyy85"]
+[ext_resource type="PackedScene" uid="uid://bri8ds0kcalnu" path="res://temp project/tile_map_22.tscn" id="9_bea6u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpalm"]
+radius = 2.36107
+height = 24.1641
+
+[sub_resource type="Animation" id="Animation_5muh2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0h2xm"]
+resource_name = "dance"
+length = 1.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.233333, 0.5, 0.766667, 1.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [45, 37, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_qjj3g"]
+resource_name = "go_down"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_m4e4q"]
+resource_name = "go_left_and_right"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_1bway"]
+resource_name = "go_up"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_yqg2r"]
+resource_name = "idle"
+length = 1.199
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5yevv"]
+_data = {
+"RESET": SubResource("Animation_5muh2"),
+"dance": SubResource("Animation_0h2xm"),
+"go_down": SubResource("Animation_qjj3g"),
+"go_left_and_right": SubResource("Animation_m4e4q"),
+"go_up": SubResource("Animation_1bway"),
+"idle": SubResource("Animation_yqg2r")
+}
+
+[sub_resource type="Gradient" id="Gradient_psojx"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3u42u"]
+gradient = SubResource("Gradient_psojx")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.497863, 0.519231)
+fill_to = Vector2(0.837607, 0.235043)
+
+[sub_resource type="Environment" id="Environment_1s0qt"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.2
+glow_strength = 0.6
+glow_blend_mode = 0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6jq8k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8srge"]
+texture = ExtResource("5_lqorm")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+1:0/0/z_index = 10
+1:0/0/y_sort_origin = 16
+1:0/0/terrain_set = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 9.6, -16, 16, 16, 16, 16, 9.6)
+1:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/z_index = 10
+2:0/0/y_sort_origin = 16
+2:0/0/terrain_set = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 9.6, 16, 9.6, 16, 16, -16, 16)
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+3:0/0 = 0
+3:0/0/z_index = 10
+3:0/0/y_sort_origin = 16
+3:0/0/terrain_set = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.2, -16, 3.2, -16, 3.2, 9.6, 16, 9.6, 16, 16, 3.2, 16, -16, 16, -16, 9.6, -3.2, 9.6)
+3:0/0/terrains_peering_bit/right_side = 0
+3:0/0/terrains_peering_bit/left_side = 0
+3:0/0/terrains_peering_bit/top_side = 0
+0:1/0 = 0
+0:1/0/modulate = Color(1, 0.845, 0.7, 1)
+0:1/0/material = SubResource("CanvasItemMaterial_6jq8k")
+1:1/0 = 0
+1:1/0/z_index = 10
+1:1/0/y_sort_origin = 16
+1:1/0/terrain_set = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 9.6, 16, 16, -16, 16, -16, 9.6)
+1:1/0/terrains_peering_bit/right_side = 0
+2:1/0 = 0
+2:1/0/z_index = 10
+2:1/0/y_sort_origin = 16
+2:1/0/terrain_set = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.2, -16, 3.2, -16, 3.2, 9.6, 16, 9.6, 16, 16, 3.2, 16, -16, 16, -16, 9.6, -3.2, 9.6)
+2:1/0/terrains_peering_bit/right_side = 0
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_side = 0
+3:1/0 = 0
+3:1/0/z_index = 10
+3:1/0/y_sort_origin = 16
+3:1/0/terrain_set = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.2, 9.6, -16, 9.6, -16, 16, 3.2, 16)
+3:1/0/terrains_peering_bit/bottom_side = 0
+3:1/0/terrains_peering_bit/left_side = 0
+0:2/0 = 0
+0:2/0/z_index = 10
+0:2/0/y_sort_origin = 16
+0:2/0/terrain_set = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.2, -16, -3.2, 16, 3.2, 16, 3.2, -16)
+0:2/0/terrains_peering_bit/top_side = 0
+1:2/0 = 0
+1:2/0/z_index = 10
+1:2/0/y_sort_origin = 16
+1:2/0/terrain_set = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.2, -16, 3.2, -16, 3.2, 16, -16, 16, -16, 9.6, -3.2, 9.6)
+1:2/0/terrains_peering_bit/left_side = 0
+1:2/0/terrains_peering_bit/top_side = 0
+2:2/0 = 0
+2:2/0/z_index = 10
+2:2/0/y_sort_origin = 16
+2:2/0/terrain_set = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.2, -16, -3.2, -16, -3.2, 16, 16, 16, 16, 9.6, 3.2, 9.6)
+2:2/0/terrains_peering_bit/right_side = 0
+2:2/0/terrains_peering_bit/top_side = 0
+3:2/0 = 0
+3:2/0/z_index = 10
+3:2/0/y_sort_origin = 16
+3:2/0/terrain_set = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.2, 9.6, 16, 9.6, 16, 16, -3.2, 16)
+3:2/0/terrains_peering_bit/right_side = 0
+3:2/0/terrains_peering_bit/bottom_side = 0
+0:3/0 = 0
+0:3/0/z_index = 10
+0:3/0/y_sort_origin = 32
+0:3/0/terrain_set = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.2, 9.6, -3.2, 9.6, -3.2, 16, 3.2, 16)
+0:3/0/terrains_peering_bit/bottom_side = 0
+2:3/0 = 0
+2:3/0/z_index = 10
+2:3/0/y_sort_origin = 16
+2:3/0/terrain_set = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.2, -16, -3.2, -16, -3.2, 16, 16, 16, 16, 9.6, 3.2, 9.6)
+2:3/0/terrains_peering_bit/right_side = 0
+2:3/0/terrains_peering_bit/bottom_side = 0
+2:3/0/terrains_peering_bit/top_side = 0
+3:3/0 = 0
+3:3/0/z_index = 10
+3:3/0/y_sort_origin = 16
+3:3/0/terrain_set = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.2, -16, 3.2, -16, 3.2, 16, -16, 16, -16, 9.6, -3.2, 9.6)
+3:3/0/terrains_peering_bit/bottom_side = 0
+3:3/0/terrains_peering_bit/left_side = 0
+3:3/0/terrains_peering_bit/top_side = 0
+1:3/0 = 0
+1:3/0/z_index = 10
+1:3/0/y_sort_origin = 32
+1:3/0/terrain_set = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.2, -16, -3.2, -16, -3.2, 16, 3.2, 16)
+1:3/0/terrains_peering_bit/bottom_side = 0
+1:3/0/terrains_peering_bit/top_side = 0
+0:0/0 = 0
+0:0/0/z_index = 10
+0:0/0/y_sort_origin = 16
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 9.6, -16, 9.6, -16, 16, 16, 16)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSet" id="TileSet_k0afr"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "walls"
+terrain_set_0/terrain_0/color = Color(0, 0.440759, 0.453267, 1)
+sources/0 = SubResource("TileSetAtlasSource_8srge")
+
+[sub_resource type="Gradient" id="Gradient_32nja"]
+offsets = PackedFloat32Array(0, 0.494005, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.28777, 0.28777, 0.28777, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ue85f"]
+gradient = SubResource("Gradient_32nja")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.478632, 0.491453)
+
+[node name="Node2D" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(398, 386)
+scale = Vector2(7.215, 7.215)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer"]
+z_index = 700
+position = Vector2(1197, 741)
+scale = Vector2(14.0193, 2.07709)
+
+[node name="countdown" type="RichTextLabel" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+modulate = Color(5.945, 0, 0, 1)
+z_index = 700
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 836.0
+offset_top = 652.0
+offset_right = 836.0
+offset_bottom = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.55918, 5.84276)
+theme_override_fonts/normal_font = ExtResource("2_cayct")
+bbcode_enabled = true
+text = "60"
+script = ExtResource("3_4gwy2")
+player = NodePath("../../CharacterBody2D")
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 40.0
+one_shot = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 5
+position = Vector2(109.586, 67.526)
+scale = Vector2(1.02849, 2.42906)
+script = ExtResource("1_kofsy")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-91.9962, -24.2045)
+scale = Vector2(1.88925, 0.118517)
+zoom = Vector2(0.48, 0.48)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+z_index = 5
+position = Vector2(1.93205, -1.60907)
+rotation = -6.28319
+scale = Vector2(0.295332, 0.133881)
+texture = ExtResource("2_ouxsa")
+flip_h = true
+hframes = 9
+vframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(1.39301, 0.330941)
+rotation = -1.5708
+scale = Vector2(0.29, 0.29)
+shape = SubResource("CapsuleShape2D_xpalm")
+
+[node name="Waaaaaaa" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("4_6ging")
+
+[node name="Yippeeeeeee" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("5_unnwi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_5yevv")
+}
+autoplay = "idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+position = Vector2(1.52776, -1.55201)
+scale = Vector2(1.10569, 0.44653)
+color = Color(0.827451, 0.682353, 0.235294, 1)
+energy = 4.25
+texture = SubResource("GradientTexture2D_3u42u")
+texture_scale = 1.06
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterBody2D"]
+modulate = Color(8.649, 8.649, 8.649, 1)
+z_index = 4096
+offset_left = -4.53646
+offset_top = -41.094
+offset_right = 181.463
+offset_bottom = 143.906
+scale = Vector2(0.551735, 0.233142)
+theme_override_fonts/normal_font = ExtResource("2_cayct")
+text = "0"
+script = ExtResource("5_hiqjd")
+metadata/_edit_use_anchors_ = true
+
+[node name="orbs" type="Node" parent="."]
+
+[node name="Orbs" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-3144, -1330)
+scale = Vector2(4.75781, 4.76355)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs5" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-2563, -1501)
+scale = Vector2(4.75781, 4.76355)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs6" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-3296, -1556)
+scale = Vector2(4.75781, 4.76355)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs7" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-2690, -813)
+scale = Vector2(4.75781, 4.76355)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs2" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-3143, -1333)
+scale = Vector2(3.90299, 5.29712)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs3" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-3143, -1333)
+scale = Vector2(6.53105, 5.80003)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs4" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-3143, -1333)
+scale = Vector2(6.00419, 4.48322)
+player = NodePath("../../CharacterBody2D")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1s0qt")
+
+[node name="countdown" type="Node" parent="."]
+
+[node name="TileMap22" parent="." instance=ExtResource("9_bea6u")]
+position = Vector2(188.219, 143.035)
+tile_set = SubResource("TileSet_k0afr")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(352.46, 59.7367)
+texture = SubResource("GradientTexture2D_ue85f")
