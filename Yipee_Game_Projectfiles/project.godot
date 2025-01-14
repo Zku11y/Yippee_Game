@@ -10,16 +10,25 @@ config_version=5
 
 [application]
 
-config/name="1st project"
-run/main_scene="res://node_2d.tscn"
+config/name="Yippee_local_mods"
+run/main_scene="res://hud.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://1337.jpg"
+config/icon="res://yippee__png__by_harisiancu2_dges1pg-fullview.png"
 
 [display]
 
-window/size/viewport_width=420
-window/size/viewport_height=290
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/defaults/default_clear_color=Color(0.3, 0.3, 0.3, 1)
+window/bg_color=Color(0.14, 0.14, 0.14, 1)
+window/image=""
+
+[editor]
+
+movie_writer/movie_file="D:/gamedev/Project saves/BOMBOCLAAAAAt.avi"
+movie_writer/disable_vsync=true
 
 [input]
 
@@ -53,8 +62,14 @@ sprint={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+quit={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.0470588, 0.0470588, 0.0470588, 1)
 viewport/hdr_2d=true

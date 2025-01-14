@@ -1,0 +1,165 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfxi7d3qujxue"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_ja4ml"]
+[ext_resource type="FontFile" uid="uid://dn2qk2e7xnbi0" path="res://Minecraftia-Regular.ttf" id="1_rq2ty"]
+[ext_resource type="Texture2D" uid="uid://buan7nwcw6je8" path="res://PNGs/wallpaperflare.com_wallpaper.jpg" id="2_n2u18"]
+[ext_resource type="AudioStream" uid="uid://c4dr1d5vfa4rq" path="res://sounds/film_static.wav" id="4_gphc4"]
+[ext_resource type="AudioStream" uid="uid://hqj1rk2ugqkt" path="res://sounds/screen_pressed.wav" id="5_vi6fj"]
+
+[sub_resource type="Environment" id="Environment_qieix"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.27
+glow_strength = 0.45
+glow_blend_mode = 0
+glow_hdr_threshold = 0.0
+
+[sub_resource type="Animation" id="Animation_ai7xk"]
+resource_name = "Camera_zoom"
+length = 4.407
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 2.215, -0.25, 0, 0.25, 0, 2.215, -0.25, 0, 1.53333, 1.785, 38.785, -0.533333, -0.785, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3.93333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 2.215, -0.25, 0, 0.25, 0, 2.215, -0.25, 0, 1.46667, 1.785, 38.785, -0.5, 0.215, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3.93333)
+}
+
+[sub_resource type="Animation" id="Animation_ceri7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DirectionalLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3fwdv"]
+resource_name = "fade_out"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 2.02, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5n7f7"]
+_data = {
+"Camera_zoom": SubResource("Animation_ai7xk"),
+"RESET": SubResource("Animation_ceri7"),
+"fade_out": SubResource("Animation_3fwdv")
+}
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ja4ml")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(959, 412)
+scale = Vector2(1.20984, 1.24984)
+texture = ExtResource("2_n2u18")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(5.804, 5, 1.251, 1)
+self_modulate = Color(0.803922, 0, 0.25098, 1)
+layout_mode = 0
+offset_left = 506.0
+offset_top = -6.0
+offset_right = 575.0
+offset_bottom = 34.0
+scale = Vector2(14.057, 14.057)
+theme_override_fonts/normal_font = ExtResource("1_rq2ty")
+bbcode_enabled = true
+text = "[shake rate=5 level=1]Yippee![/shake]"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qieix")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5n7f7")
+}
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1.097, 0.409, 0.522, 1)
+layout_mode = 0
+offset_left = 930.0
+offset_top = 517.0
+offset_right = 993.0
+offset_bottom = 570.0
+scale = Vector2(1, 1.03888)
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_rq2ty")
+text = "Play"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.0
+blend_mode = 1
+
+[node name="background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gphc4")
+volume_db = -1.247
+pitch_scale = 0.8
+autoplay = true
+
+[node name="press" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vi6fj")
+volume_db = -1.247
+pitch_scale = 0.78
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,7 +1,8 @@
 extends RichTextLabel
 
 @onready var timer: Timer = $"../Timer"
-@onready var player: CharacterBody2D = $"../../.."
+@export var player: CharacterBody2D
+
 
 
 

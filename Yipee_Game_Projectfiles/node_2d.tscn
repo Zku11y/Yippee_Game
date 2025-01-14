@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bm28ulcb0ob3j"]
+[gd_scene load_steps=27 format=3 uid="uid://bm28ulcb0ob3j"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_kofsy"]
 [ext_resource type="FontFile" uid="uid://dn2qk2e7xnbi0" path="res://Minecraftia-Regular.ttf" id="2_cayct"]
@@ -125,14 +125,15 @@ _data = {
 "idle": SubResource("Animation_yqg2r")
 }
 
-[sub_resource type="Gradient" id="Gradient_gcbw0"]
+[sub_resource type="Gradient" id="Gradient_psojx"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3u42u"]
-gradient = SubResource("Gradient_gcbw0")
+gradient = SubResource("Gradient_psojx")
+use_hdr = true
 fill = 1
 fill_from = Vector2(0.497863, 0.519231)
-fill_to = Vector2(0.912393, 0.252137)
+fill_to = Vector2(0.837607, 0.235043)
 
 [sub_resource type="Environment" id="Environment_1s0qt"]
 background_mode = 3
@@ -265,10 +266,50 @@ terrain_set_0/terrain_0/name = "walls"
 terrain_set_0/terrain_0/color = Color(0, 0.440759, 0.453267, 1)
 sources/0 = SubResource("TileSetAtlasSource_8srge")
 
+[sub_resource type="Gradient" id="Gradient_32nja"]
+offsets = PackedFloat32Array(0, 0.494005, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.28777, 0.28777, 0.28777, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ue85f"]
+gradient = SubResource("Gradient_32nja")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.478632, 0.491453)
+
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(398, 386)
 scale = Vector2(7.215, 7.215)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer"]
+z_index = 700
+position = Vector2(1197, 741)
+scale = Vector2(14.0193, 2.07709)
+
+[node name="countdown" type="RichTextLabel" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+modulate = Color(5.945, 0, 0, 1)
+z_index = 700
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 836.0
+offset_top = 652.0
+offset_right = 836.0
+offset_bottom = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.55918, 5.84276)
+theme_override_fonts/normal_font = ExtResource("2_cayct")
+bbcode_enabled = true
+text = "60"
+script = ExtResource("3_4gwy2")
+player = NodePath("../../CharacterBody2D")
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 40.0
+one_shot = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 z_index = 5
@@ -277,28 +318,12 @@ scale = Vector2(1.02849, 2.42906)
 script = ExtResource("1_kofsy")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(1.12348, -7.54322)
+position = Vector2(-91.9962, -24.2045)
 scale = Vector2(1.88925, 0.118517)
 zoom = Vector2(0.48, 0.48)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CharacterBody2D/Camera2D"]
-
-[node name="countdown" type="RichTextLabel" parent="CharacterBody2D/Camera2D/StaticBody2D"]
-modulate = Color(0.913725, 0, 0, 1)
-z_index = 700
-offset_left = -4.77913
-offset_top = 78.9566
-offset_right = 35.2209
-offset_bottom = 118.957
-scale = Vector2(0.438719, 2.91559)
-theme_override_fonts/normal_font = ExtResource("2_cayct")
-bbcode_enabled = true
-text = "60"
-script = ExtResource("3_4gwy2")
-
-[node name="Timer" type="Timer" parent="CharacterBody2D/Camera2D/StaticBody2D"]
-wait_time = 40.0
-one_shot = true
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 z_index = 5
@@ -330,18 +355,20 @@ libraries = {
 autoplay = "idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
-position = Vector2(-10.8702, 3.1839)
-scale = Vector2(8.89917, 3.5939)
+position = Vector2(1.52776, -1.55201)
+scale = Vector2(1.10569, 0.44653)
+color = Color(0.827451, 0.682353, 0.235294, 1)
 energy = 4.25
 texture = SubResource("GradientTexture2D_3u42u")
 texture_scale = 1.06
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CharacterBody2D"]
+modulate = Color(8.649, 8.649, 8.649, 1)
 z_index = 4096
-offset_left = -0.358875
-offset_top = -23.5769
-offset_right = 185.641
-offset_bottom = 161.423
+offset_left = -4.53646
+offset_top = -41.094
+offset_right = 181.463
+offset_bottom = 143.906
 scale = Vector2(0.551735, 0.233142)
 theme_override_fonts/normal_font = ExtResource("2_cayct")
 text = "0"
@@ -352,7 +379,25 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Orbs" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
 modulate = Color(7.527, 10.215, 14.785, 1)
-position = Vector2(-3143, -1333)
+position = Vector2(-3144, -1330)
+scale = Vector2(4.75781, 4.76355)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs5" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-2563, -1501)
+scale = Vector2(4.75781, 4.76355)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs6" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-3296, -1556)
+scale = Vector2(4.75781, 4.76355)
+player = NodePath("../../CharacterBody2D")
+
+[node name="Orbs7" parent="orbs" node_paths=PackedStringArray("player") instance=ExtResource("6_vyy85")]
+modulate = Color(7.527, 10.215, 14.785, 1)
+position = Vector2(-2690, -813)
 scale = Vector2(4.75781, 4.76355)
 player = NodePath("../../CharacterBody2D")
 
@@ -374,16 +419,15 @@ position = Vector2(-3143, -1333)
 scale = Vector2(6.00419, 4.48322)
 player = NodePath("../../CharacterBody2D")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="orbs"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1s0qt")
 
 [node name="countdown" type="Node" parent="."]
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-z_index = 50
-energy = 0.94
-blend_mode = 1
-
 [node name="TileMap22" parent="." instance=ExtResource("9_bea6u")]
 position = Vector2(188.219, 143.035)
 tile_set = SubResource("TileSet_k0afr")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(352.46, 59.7367)
+texture = SubResource("GradientTexture2D_ue85f")
